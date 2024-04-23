@@ -1,6 +1,100 @@
 # webService_ferramas
 
-## PASO 2 (Construcción e integración)
+Aquí tienes las instrucciones para iniciar este proyecto:
+
+### Creación de ambiente virtual Django
+
+1. Abre una terminal.
+
+2. Instala virtualenv si no lo tienes instalado:
+   ```bash
+   pip install virtualenv
+   ```
+
+3. Crea un nuevo directorio para tu proyecto y navega hacia él:
+   ```bash
+   mkdir mi_proyecto
+   cd mi_proyecto
+   ```
+
+4. Crea un ambiente virtual dentro del directorio de tu proyecto:
+   ```bash
+   virtualenv venv
+   ```
+
+5. Activa el ambiente virtual:
+   - En Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - En macOS y Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+6. Instala Django en el ambiente virtual:
+   ```bash
+   pip install django
+   ```
+
+### Conexión a base de datos PostgreSQL
+
+1. Asegúrate de tener PostgreSQL instalado en tu sistema.
+
+2. Crea una base de datos en PostgreSQL para tu proyecto.
+
+3. Abre el archivo `settings.py` dentro de tu proyecto Django y configura la conexión a la base de datos PostgreSQL. Por ejemplo:
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'nombre_de_la_base_de_datos',
+           'USER': 'usuario',
+           'PASSWORD': 'contraseña',
+           'HOST': 'localhost',
+           'PORT': '5432',
+       }
+   }
+   ```
+
+### Creación de API REST con Python y Flask
+
+1. Asegúrate de tener Python instalado en tu sistema.
+
+2. Instala Flask:
+   ```bash
+   pip install flask
+   ```
+
+3. Crea un nuevo archivo Python para tu aplicación Flask. Por ejemplo, `app.py`.
+
+4. Importa Flask y crea una instancia de la aplicación:
+   ```python
+   from flask import Flask
+
+   app = Flask(__name__)
+   ```
+
+5. Define tus rutas y funciones de manejo de solicitudes dentro de la aplicación Flask. Por ejemplo:
+   ```python
+   @app.route('/')
+   def index():
+       return '¡Hola, mundo! Esta es mi API REST.'
+
+   @app.route('/productos')
+   def obtener_productos():
+       # Lógica para obtener productos desde la base de datos o algún otro origen de datos
+       return 'Aquí estarían los productos.'
+
+   # Define más rutas y funciones según las necesidades de tu API
+   ```
+
+6. Ejecuta la aplicación Flask:
+   ```bash
+   python app.py
+   ```
+
+## PASO 1 (Construcción e integración)
 
 "FERREMAS" ya dispone de un sitio web básico para ventas, que ha sido desarrollado en JAVA con una arquitectura de capas. Este sitio es intuitivo, simple y visualmente atractivo, diseñado para facilitar la experiencia de compra del cliente. En la página principal se destacan los productos en promoción y los lanzamientos recientes, mientras que el resto de los productos están organizados en categorías específicas de ferretería y construcción, tales como:
 
@@ -61,7 +155,7 @@ Para las compras realizadas con tarjetas de débito y/o crédito en el sitio web
 
 Finalmente, los administradores de "FERREMAS" han identificado una oportunidad de negocio con el aumento de pedidos desde el extranjero. Para expandirse a mercados internacionales y gestionar envíos al exterior, será necesario implementar una funcionalidad de conversión de divisas en tiempo real. La conversión automática de la moneda extranjera a la moneda nacional se realizará a través de la integración con la API del Banco Central de Chile, cuyas instrucciones e integración están disponibles en su sitio web oficial.
 
-## PASO 3 (Pruebas, validación y documentación)
+## PASO 2 (Pruebas, validación y documentación)
 
 Tras concluir la construcción y la mejora del sitio de "FERREMAS" mediante el desarrollo de WebService, se inicia la etapa de pruebas para verificar la funcionalidad del sistema y la correcta integración de sistemas a través de las API/Webservices implementadas.
 
