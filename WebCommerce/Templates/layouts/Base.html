@@ -1,19 +1,81 @@
-<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">Acerca de Nosotros</a></li>
-        <li><a href="/anclajes">Anclajes</a></li>
-        <li><a href="/crear-cuenta">Crear Cuenta</a></li>
-        <li><a href="/equipo-seguridad">Equipos Seguridad</a></li>
-        <li><a href="/fijaciones">Fijaciones</a></li>
-        <li><a href="/herramientas">Herramientas</a></li>
-        <li><a href="/inicio-sesion">Login</a></li>
-        <li><a href="/materiales-basicos">Materiales Basicos</a></li>
-        <li><a href="/pago">Mis Compras</a></li>
-        <li><a href="/suscripcion">Suscripcion</a></li>
-        
-    </ul>
-</nav>
+{% load static %}
+<!DOCTYPE html>
 
-{% block content %}
-{% endblock %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería FERRAMAS</title> 
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/ferramass_ico.png' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/ferramass_logo.jpg' %}" class="imagen-circular" 
+        style="max-width: 75px; max-height: 50px;"><h1>FERREMAS</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Herramientas manuales</a></li>
+                <li><a href="#">Equipos de seguridad</a></li>
+                <li><a href="#">Fijaciones</a></li>
+                <li><a href="#">Materiales Basicos</a></li>
+                <li><a href="#">Tornillería y anclajes</a></li>
+                <li><a href="#">Equipos de medición</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contenedor-centrado">
+        <section class="banner">
+            <img src="{% static 'img/ferramass_logo.jpg' %}" class="imagen-circular" 
+            style="max-width: 300px; max-height: 200px;" alt="Banner de FERRAMAS">
+            <div class="banner-text">
+            </div>
+                <h2>Bienvenido a FERRAMAS</h2>
+                <p>Encuentra todo lo que necesitas para tus proyectos de construcción.</p>
+                <a href="#" class="btn btn-primary">Comprar ahora</a>
+            </div>
+        </section>
+
+        <section class="productos">
+            <h2>Productos destacados</h2>
+            <div class="productos-grid">
+            </div>
+        </section>
+
+        <section class="categorias">
+            <h2>Categorías</h2>
+            <ul class="categorias-list">
+                <li><a href="#">Herramientas manuales</a></li>
+                <li><a href="#">Equipos de seguridad</a></li>
+                <li><a href="#">Fijaciones</a></li>
+                <li><a href="#">Materiales Basicos</a></li>
+                <li><a href="#">Tornillería y anclajes</a></li>
+                <li><a href="#">Equipos de medición</a></li>
+            </ul>
+        </section>
+
+        <section class="contacto">
+            <h2>Contacto</h2>
+            <p>¿Necesitas ayuda? Contáctanos.</p>
+            <ul class="contacto-info">
+                <li><a href="#">Teléfono: +56 2 2222 2222</a></li>
+                <li><a href="#">Correo electrónico: info@ferramas.cl</a></li>
+                <li><a href="#">Dirección: Av. Antonio Varas 666, Providencia</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;InformaticSolutions 2024 FERRAMAS. Todos los derechos reservados.</p>
+        <ul class="redes-sociales">
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
