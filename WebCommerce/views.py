@@ -11,7 +11,7 @@ def user_login(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')  
+            return redirect('../base')  
         else:
             return render(request, 'InicioSesion/login.html', {'error_message': 'Invalid email or password'})
     else:
@@ -36,10 +36,15 @@ def user_register(request):
         user.first_name = name
         user.save()
         
-        return redirect('login')  
+        return redirect('../login')  
         
     else:
         return render(request, 'InicioSesion/register.html')
+
+
+
+
+
 
 
 # Create your views here.
