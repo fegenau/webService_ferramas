@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -11,16 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Title -->
     <title>Wodmart-Furniture eCommerce HTML Template</title>
-    <link rel="icon" type="image/x-icon" sizes="20x20" href="assets/images/icon/favicon.svg">
+    <link rel="icon" type="image/x-icon" sizes="20x20" href="{% static 'images/icon/favicon.svg' %}">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-5.3.0.min.css">
-    <!-- fonts & icon -->
-    <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-5.3.0.min.css' %}">
+    <!-- Fonts & Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/remixicon.css' %}">
     <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="assets/css/plugin.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/plugin.css' %}">
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main-style.css' %}">
+    
 </head>
 
 <body>
@@ -591,44 +594,36 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10">
                         <div class="login-card">
-                            <!-- Form -->
-                            <form action="#" method="POST">
-                                <div class="contact-form mb-24">
-                                    <label class="contact-label">Name </label>
-                                    <input class="form-control contact-input" type="text" placeholder="Enter Your Name">
-                                </div>
-                                <div class="contact-form mb-24">
-                                    <label class="contact-label">Email </label>
-                                    <input class="form-control contact-input" type="email" placeholder="Email">
-                                </div>
 
-                                <!-- Password -->
+                            <form action="{% url 'user_register' %}" method="post">
+                                {% csrf_token %}
+                                <div class="contact-form mb-24">
+                                    <label class="contact-label">Name</label>
+                                    <input class="form-control contact-input" type="text" name="name" placeholder="Enter Your Name">
+                                </div>
+                                <div class="contact-form mb-24">
+                                    <label class="contact-label">Email</label>
+                                    <input class="form-control contact-input" type="email" name="email" placeholder="Email">
+                                </div>
                                 <div class="position-relative contact-form mb-24">
                                     <label class="contact-label">Enter Password</label>
-                                    <input type="password" class="form-control contact-input password-input"
-                                        id="txtPasswordLogin" placeholder="Enter Password">
+                                    <input type="password" class="form-control contact-input password-input" name="password" placeholder="Enter Password">
                                     <i class="toggle-password ri-eye-line"></i>
                                 </div>
-                                <!-- Password -->
                                 <div class="position-relative contact-form mb-24">
                                     <label class="contact-label">Confirm Password</label>
-                                    <input type="password" class="form-control contact-input password-input"
-                                        id="txtPasswordLogin2" placeholder="Confirm Password">
+                                    <input type="password" class="form-control contact-input password-input" name="confirm_password" placeholder="Confirm Password">
                                     <i class="toggle-password ri-eye-line"></i>
                                 </div>
-
-                                <a href="javascript:void(0)" class="btn-primary-fill justify-content-center w-100">
-                                    <span class="d-flex justify-content-center gap-6">
-                                        <span>Register</span>
-                                    </span>
-                                </a>
+                                <button type="submit" class="btn-primary-fill justify-content-center w-100">Register</button>
                             </form>
+                            
 
                             <div class="login-footer">
                                 <div class="create-account">
                                     <p>
                                         Already have an account?
-                                        <a href="login.html">
+                                        <a href="../login">
                                             <span class="text-primary">Login</span>
                                         </a>
                                     </p>
@@ -785,14 +780,17 @@
     </div>
     <!-- Add an overlay element -->
     <div class="overlay"></div>
-    <!-- jquery-->
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-5.3.0.min.js"></script>
-    <!-- Plugin -->
-    <script src="assets/js/plugin.js"></script>
-    <!-- Main js-->
-    <script src="assets/js/main.js"></script>
+<!-- jQuery -->
+<script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+<!-- Popper.js -->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'js/bootstrap-5.3.0.min.js' %}"></script>
+<!-- Plugin -->
+<script src="{% static 'js/plugin.js' %}"></script>
+<!-- Main JavaScript -->
+<script src="{% static 'js/main.js' %}"></script>
+
 
 </body>
 
