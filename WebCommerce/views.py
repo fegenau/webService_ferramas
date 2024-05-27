@@ -42,14 +42,6 @@ def user_register(request):
         return render(request, 'InicioSesion/register.html')
 
 
-
-
-
-
-
-
-
-
 # Create your views here.
 def index(request):
     return render(request,'index.html')
