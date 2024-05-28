@@ -34,6 +34,7 @@ def user_register(request):
         rol = request.POST.get('rol')  # Añadido
         direccion = request.POST.get('direccion')  # Añadido
         telefono = request.POST.get('telefono')  # Añadido
+        rut = request.POST.get('rut')  # Añadido
         
         if password != confirm_password:
             return render(request, 'InicioSesion/register.html', {'error_message': 'Passwords do not match'})
@@ -44,7 +45,7 @@ def user_register(request):
         user.save()
         
         # Crear registro en la tabla Usuarios
-        usuario = Usuarios(nombre=name, correo_electronico=email, rol=rol, direccion=direccion, telefono=telefono)
+        usuario = Usuarios(nombre=name, rut=rut, correo_electronico=email, rol=rol, direccion=direccion, telefono=telefono)
         usuario.save()
         
         return redirect('../login')  

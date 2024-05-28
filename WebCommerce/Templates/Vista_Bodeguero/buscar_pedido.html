@@ -5,7 +5,7 @@
     <title>Buscar Pedido</title>
 </head>
 <body>
-    <h1>Buscar Pedido por ID</h1>
+    <h1>Buscar Pedido OC</h1>
     <form method="get" action="{% url 'buscar_pedido' %}">
         <label for="pedido_id">ID del Pedido:</label>
         <input type="text" id="pedido_id" name="pedido_id">
@@ -14,8 +14,10 @@
 
     {% if pedido %}
         <h2>Detalles del Pedido</h2>
-        <p><strong>ID:</strong> {{ pedido.pedido_id }}</p>
-        <p><strong>Usuario:</strong> {{ pedido.usuario_id.nombre }}</p>
+        <p><strong>Orden de Compra:</strong> {{ pedido.pedido_id }}</p>
+        <p><strong>Cliente:</strong> {{ pedido.usuario_id.nombre }}</p>
+        <p><strong>Rut:</strong> {{ pedido.usuario_id.rut }}</p>
+
         <p><strong>Dirección de Envío:</strong> {{ pedido.direccion_envio_id.alias }}</p>
         <p><strong>Fecha de Pedido:</strong> {{ pedido.fecha_pedido }}</p>
         <p><strong>Fecha de Entrega Estimada:</strong> {{ pedido.fecha_entrega_estimada }}</p>
