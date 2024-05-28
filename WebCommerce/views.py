@@ -23,24 +23,35 @@ def user_logout(request):
     logout(request)
     return redirect('login')  
 
+from .models import Usuarios
+
 def user_register(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
+        rol = request.POST.get('rol')  # Añadido
+        direccion = request.POST.get('direccion')  # Añadido
+        telefono = request.POST.get('telefono')  # Añadido
         
         if password != confirm_password:
             return render(request, 'InicioSesion/register.html', {'error_message': 'Passwords do not match'})
         
+        # Crear usuario en la tabla User
         user = User.objects.create_user(username=email, email=email, password=password)
         user.first_name = name
         user.save()
+        
+        # Crear registro en la tabla Usuarios
+        usuario = Usuarios(nombre=name, correo_electronico=email, rol=rol, direccion=direccion, telefono=telefono)
+        usuario.save()
         
         return redirect('../login')  
         
     else:
         return render(request, 'InicioSesion/register.html')
+
 
 
 def buscar_pedido(request):

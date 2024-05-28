@@ -615,8 +615,28 @@
                                     <input type="password" class="form-control contact-input password-input" name="confirm_password" placeholder="Confirm Password">
                                     <i class="toggle-password ri-eye-line"></i>
                                 </div>
+                                <input type="hidden" name="rol" value="cliente">
+                                <div class="contact-form mb-24" style="display: none;">
+                                    <!-- Esto oculta el campo de rol al usuario -->
+                                    <label class="contact-label">Rol</label>
+                                    <select class="form-control contact-input" name="rol" disabled>
+                                        <option value="admin">Administrador</option>
+                                        <option value="cliente" selected>Cliente</option>
+                                        <option value="empleado">Empleado</option>
+                                    </select>
+                                </div>
+                                <div class="contact-form mb-24">
+                                    <label class="contact-label">Dirección</label>
+                                    <input class="form-control contact-input" type="text" name="direccion" placeholder="Enter Your Address">
+                                </div>
+                                <div class="contact-form mb-24">
+                                    <label class="contact-label">Teléfono</label>
+                                    <input class="form-control contact-input" type="tel" name="telefono" placeholder="Enter Your Phone Number">
+                                </div>
                                 <button type="submit" class="btn-primary-fill justify-content-center w-100">Register</button>
                             </form>
+                            
+                            
                             
 
                             <div class="login-footer">
