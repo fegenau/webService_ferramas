@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'siteFerremas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ferremas',
+        'NAME': 'ferramas',
         'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': 'localhost',  # O la dirección IP de tu servidor de base de datos
