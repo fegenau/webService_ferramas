@@ -9,6 +9,10 @@ urlpatterns = [
     path('index/', views.index, name='index'),
 
 
+    path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
+
+
+
 
 
 

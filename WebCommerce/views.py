@@ -1,8 +1,10 @@
 # Vistas (views.py)
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import *
+from .models import *
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -16,7 +18,6 @@ def user_login(request):
             return render(request, 'InicioSesion/login.html', {'error_message': 'Invalid email or password'})
     else:
         return render(request, 'InicioSesion/login.html')
-
 
 def user_logout(request):
     logout(request)
@@ -40,6 +41,19 @@ def user_register(request):
         
     else:
         return render(request, 'InicioSesion/register.html')
+
+
+def buscar_pedido(request):
+    pedido = None
+    detalles = None
+    if 'pedido_id' in request.GET:
+        pedido_id = request.GET['pedido_id']
+        pedido = get_object_or_404(Pedidos, pk=pedido_id)
+        detalles = Detalles_pedido.objects.filter(pedido_id=pedido)
+
+    return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedido': pedido, 'detalles': detalles})
+
+
 
 
 
