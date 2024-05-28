@@ -11,13 +11,6 @@ urlpatterns = [
 
     path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
     path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
-
-
-
-
-
-
-
     path('about/', views.about),
     path('anclajes/', views.anclajes),
     path('crear-cuenta/', views.crearCuenta),
@@ -25,8 +18,9 @@ urlpatterns = [
     path('fijaciones/', views.fijacion),
     path('herramientas/', views.herramientas),
     path('inicio-sesion/', views.inicioSesion),
-    path('materiales-basicos',views.materialesBasicos),
+    path('materiales-basicos/',views.materialesBasicos),
     path('pago/', views.pago),
     path('suscripcion/', views.suscripcion),
+    path('carrito-compra/',views.carritoCompra),
     
 ]

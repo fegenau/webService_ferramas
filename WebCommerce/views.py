@@ -76,33 +76,6 @@ def modificar_pedido(request, pedido_id):
         form = PedidoForm(instance=pedido)
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -136,3 +109,6 @@ def pago(request):
 
 def suscripcion(request):
     return render(request,'Suscripcion/suscripcion.html')
+
+def carritoCompra(request):
+    return render(request,'Carrito/carrito-compra.html')
