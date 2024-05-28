@@ -54,18 +54,21 @@ def user_register(request):
         return render(request, 'InicioSesion/register.html')
 
 
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from .models import Pedidos
 
 def buscar_pedido(request):
-    pedido = None
-    detalles = None
-    if 'pedido_id' in request.GET:
-        pedido_id = request.GET['pedido_id']
-        pedido = get_object_or_404(Pedidos, pk=pedido_id)
-        detalles = Detalles_pedido.objects.filter(pedido_id=pedido)
+    pedidos = None
+    if 'cliente_rut' in request.GET:
+        cliente_rut = request.GET['cliente_rut']
+        pedidos = Pedidos.objects.filter(usuario_id__rut=cliente_rut)
 
-    return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedido': pedido, 'detalles': detalles})
+    elif 'estado_pedido' in request.GET:
+        estado_pedido = request.GET['estado_pedido']
+        pedidos = Pedidos.objects.filter(estado=estado_pedido)
 
-
+    return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedidos': pedidos})
 
 
 
