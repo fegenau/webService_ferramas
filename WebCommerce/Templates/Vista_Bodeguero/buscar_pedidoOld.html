@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Pedido</title>
+</head>
+<body>
+    <h1>Buscar Pedido OC</h1>
+    <form method="get" action="{% url 'buscar_pedido' %}">
+        <label for="cliente_rut">RUT del Cliente:</label>
+        <input type="text" id="cliente_rut" name="cliente_rut">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <form method="get" action="{% url 'buscar_pedido' %}">
+        <label for="estado_pedido">Estado del Pedido:</label>
+        <select id="estado_pedido" name="estado_pedido">
+            <option value="pendiente">Pendiente</option>
+            <option value="Procesando">Procesando</option>
+            <option value="Enviado">Enviado</option>
+            <option value="Entregado">Entregado</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if pedidos %}
+        <h2>Resultados de la Búsqueda</h2>
+        <ul>
+            {% for pedido in pedidos %}
+                <li>
+                    <p><strong>Orden de Compra:</strong> {{ pedido.pedido_id }}</p>
+                    <p><strong>Cliente:</strong> {{ pedido.usuario_id.nombre }}</p>
+                    <p><strong>RUT:</strong> {{ pedido.usuario_id.rut }}</p>
+                    <p><strong>Dirección de Envío:</strong> {{ pedido.direccion_envio_id.alias }}</p>
+                    <p><strong>Fecha de Pedido:</strong> {{ pedido.fecha_pedido }}</p>
+                    <p><strong>Fecha de Entrega Estimada:</strong> {{ pedido.fecha_entrega_estimada }}</p>
+                    <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+                    <p><strong>Total:</strong> {{ pedido.total }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron pedidos que coincidan con la búsqueda.</p>
+    {% endif %}
+</body>
+</html>

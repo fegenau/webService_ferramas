@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'siteFerremas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Yggdrasill',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',  # O la dirección IP de tu servidor de base de datos
+        'PORT': '5432',       # El puerto por defecto de PostgreSQL
     }
 }
+
 
 
 # Password validation

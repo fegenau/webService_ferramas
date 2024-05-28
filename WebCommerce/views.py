@@ -1,8 +1,10 @@
 # Vistas (views.py)
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import *
+from .models import *
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -17,7 +19,6 @@ def user_login(request):
     else:
         return render(request, 'InicioSesion/login.html')
 
-
 def user_logout(request):
     logout(request)
     return redirect('login')  
@@ -28,18 +29,73 @@ def user_register(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
+        rol = request.POST.get('rol')  # Añadido
+        direccion = request.POST.get('direccion')  # Añadido
+        telefono = request.POST.get('telefono')  # Añadido
+        rut = request.POST.get('rut')  # Añadido
         
         if password != confirm_password:
             return render(request, 'InicioSesion/register.html', {'error_message': 'Passwords do not match'})
         
+        # Crear usuario en la tabla User
         user = User.objects.create_user(username=email, email=email, password=password)
         user.first_name = name
         user.save()
+        
+        # Crear registro en la tabla Usuarios
+        usuario = Usuarios(nombre=name, rut=rut, correo_electronico=email, rol=rol, direccion=direccion, telefono=telefono)
+        usuario.save()
         
         return redirect('../login')  
         
     else:
         return render(request, 'InicioSesion/register.html')
+
+def buscar_pedido(request):
+    pedidos = None
+    if 'cliente_rut' in request.GET:
+        cliente_rut = request.GET['cliente_rut']
+        pedidos = Pedidos.objects.filter(usuario_id__rut=cliente_rut)
+
+    elif 'estado_pedido' in request.GET:
+        estado_pedido = request.GET['estado_pedido']
+        pedidos = Pedidos.objects.filter(estado=estado_pedido)
+
+    return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedidos': pedidos})
+
+from .forms import PedidoForm
+
+def modificar_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedidos, pk=pedido_id)
+    if request.method == 'POST':
+        form = PedidoForm(request.POST, instance=pedido)
+        if form.is_valid():
+            form.save()
+            return redirect('buscar_pedido', )
+    else:
+        form = PedidoForm(instance=pedido)
+    return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

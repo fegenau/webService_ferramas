@@ -1,0 +1,186 @@
+[
+  {
+    "model": "miapp.categorias",
+    "pk": 1,
+    "fields": {
+      "nombre": "Electrónica",
+      "descripcion": "Dispositivos electrónicos y gadgets.",
+      "padre_id": null
+    }
+  },
+  {
+    "model": "miapp.categorias",
+    "pk": 2,
+    "fields": {
+      "nombre": "Computadoras",
+      "descripcion": "Computadoras y accesorios.",
+      "padre_id": 1
+    }
+  },
+  {
+    "model": "miapp.marcas",
+    "pk": 1,
+    "fields": {
+      "nombre": "Apple",
+      "descripcion": "Fabricante de dispositivos electrónicos.",
+      "sitio_web": "https://www.apple.com"
+    }
+  },
+  {
+    "model": "miapp.marcas",
+    "pk": 2,
+    "fields": {
+      "nombre": "Samsung",
+      "descripcion": "Empresa de tecnología y electrónica.",
+      "sitio_web": "https://www.samsung.com"
+    }
+  },
+  {
+    "model": "miapp.usuarios",
+    "pk": 1,
+    "fields": {
+      "nombre": "Juan Pérez",
+      "correo_electronico": "juan.perez@example.com",
+      "contrasena": "hashed_password",
+      "rol": "admin",
+      "direccion": "Calle Falsa 123",
+      "telefono": "555-1234"
+    }
+  },
+  {
+    "model": "miapp.usuarios",
+    "pk": 2,
+    "fields": {
+      "nombre": "María López",
+      "correo_electronico": "maria.lopez@example.com",
+      "contrasena": "hashed_password",
+      "rol": "cliente",
+      "direccion": "Avenida Siempre Viva 742",
+      "telefono": "555-5678"
+    }
+  },
+  {
+    "model": "miapp.direcciones_envio",
+    "pk": 1,
+    "fields": {
+      "usuario_id": 2,
+      "alias": "Casa",
+      "calle": "Avenida Siempre Viva 742",
+      "codigo_postal": "12345",
+      "ciudad": "Springfield",
+      "estado_provincia": "IL",
+      "pais": "USA"
+    }
+  },
+  {
+    "model": "miapp.productos",
+    "pk": 1,
+    "fields": {
+      "nombre": "iPhone 13",
+      "descripcion": "Último modelo de iPhone.",
+      "precio": "999.99",
+      "costo": "799.99",
+      "stock": 50,
+      "categoria_id": 1,
+      "marca_id": 1,
+      "imagen": "iphone_13.jpg"
+    }
+  },
+  {
+    "model": "miapp.productos",
+    "pk": 2,
+    "fields": {
+      "nombre": "Galaxy S21",
+      "descripcion": "Último modelo de Galaxy.",
+      "precio": "899.99",
+      "costo": "699.99",
+      "stock": 75,
+      "categoria_id": 1,
+      "marca_id": 2,
+      "imagen": "galaxy_s21.jpg"
+    }
+  },
+  {
+    "model": "miapp.pedidos",
+    "pk": 1,
+    "fields": {
+      "usuario_id": 2,
+      "direccion_envio_id": 1,
+      "fecha_pedido": "2023-05-01T10:00:00Z",
+      "fecha_entrega_estimada": "2023-05-05T10:00:00Z",
+      "estado": "pendiente",
+      "total": "1899.98",
+      "forma_pago_id": 1
+    }
+  },
+  {
+    "model": "miapp.detalles_pedido",
+    "pk": 1,
+    "fields": {
+      "pedido_id": 1,
+      "producto_id": 1,
+      "cantidad": 1,
+      "precio_unitario": "999.99",
+      "subtotal": "999.99"
+    }
+  },
+  {
+    "model": "miapp.detalles_pedido",
+    "pk": 2,
+    "fields": {
+      "pedido_id": 1,
+      "producto_id": 2,
+      "cantidad": 1,
+      "precio_unitario": "899.99",
+      "subtotal": "899.99"
+    }
+  },
+  {
+    "model": "miapp.formas_pago",
+    "pk": 1,
+    "fields": {
+      "nombre": "Tarjeta de Crédito",
+      "descripcion": "Pago mediante tarjeta de crédito.",
+      "detalles": "Visa, MasterCard, American Express"
+    }
+  },
+  {
+    "model": "miapp.carrito_compras",
+    "pk": 1,
+    "fields": {
+      "usuario_id": 2,
+      "producto_id": 1,
+      "cantidad": 1
+    }
+  },
+  {
+    "model": "miapp.metodos_pago_adicionales",
+    "pk": 1,
+    "fields": {
+      "nombre": "PayPal",
+      "descripcion": "Pago mediante PayPal."
+    }
+  },
+  {
+    "model": "miapp.transacciones",
+    "pk": 1,
+    "fields": {
+      "usuario_id": 2,
+      "pedido_id": 1,
+      "monto": "1899.98",
+      "fecha_transaccion": "2023-05-01T11:00:00Z",
+      "metodo_pago_id": 1
+    }
+  },
+  {
+    "model": "miapp.valoraciones",
+    "pk": 1,
+    "fields": {
+      "producto_id": 1,
+      "usuario_id": 2,
+      "calificacion": 5,
+      "comentario": "Excelente producto.",
+      "fecha_valoracion": "2023-05-10T12:00:00Z"
+    }
+  }
+]

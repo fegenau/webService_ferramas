@@ -21,7 +21,7 @@ class Usuarios(models.Model):
     usuario_id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=255)
     correo_electronico = models.EmailField(unique=True)
-    contrasena = models.CharField(max_length=255)
+    rut = models.CharField(max_length=255)
     rol = models.CharField(max_length=8, choices=ROLES)
     direccion = models.CharField(max_length=255)
     telefono = models.CharField(max_length=20)

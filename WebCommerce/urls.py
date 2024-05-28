@@ -9,6 +9,12 @@ urlpatterns = [
     path('index/', views.index, name='index'),
 
 
+    path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
+    path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
+
+
+
+
 
 
 
