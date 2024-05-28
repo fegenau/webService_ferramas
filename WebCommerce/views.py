@@ -23,8 +23,6 @@ def user_logout(request):
     logout(request)
     return redirect('login')  
 
-from .models import Usuarios
-
 def user_register(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -53,11 +51,6 @@ def user_register(request):
     else:
         return render(request, 'InicioSesion/register.html')
 
-
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from .models import Pedidos
-
 def buscar_pedido(request):
     pedidos = None
     if 'cliente_rut' in request.GET:
@@ -69,6 +62,40 @@ def buscar_pedido(request):
         pedidos = Pedidos.objects.filter(estado=estado_pedido)
 
     return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedidos': pedidos})
+
+from .forms import PedidoForm
+
+def modificar_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedidos, pk=pedido_id)
+    if request.method == 'POST':
+        form = PedidoForm(request.POST, instance=pedido)
+        if form.is_valid():
+            form.save()
+            return redirect('buscar_pedido', )
+    else:
+        form = PedidoForm(instance=pedido)
+    return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
