@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'siteFerremas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ferremas',
+        'NAME': 'ferramas',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'P.assword1',
         'HOST': 'localhost',  # O la dirección IP de tu servidor de base de datos
         'PORT': '5432',       # El puerto por defecto de PostgreSQL
     }
