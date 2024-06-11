@@ -12,11 +12,13 @@ urlpatterns = [
     path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
     path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
 
-
-
-
-
-
+#catalogo
+    path('catalogo/herramientasmanuales/', views.herramientasmanuales, name='herramientasmanuales'),
+    path('equiposmedicion/', views.equiposmedicion, name='equiposmedicion'),
+    path('equiposseguridad/', views.equiposseguridad, name='equiposseguridad'),
+    path('fijaciones/', views.fijaciones, name='fijaciones'),
+    path('materialesbasicos/', views.materialesbasicos, name='materialesbasicos'),
+    path('tornillosanclajes/', views.tornillosanclajes, name='tornillosanclajes'),
 
     path('about/', views.about),
     path('anclajes/', views.anclajes),

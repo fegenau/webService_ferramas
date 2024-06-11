@@ -1,7 +1,4 @@
-
-
-
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
@@ -10,12 +7,11 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="description" content="....">
 	<meta name="keywords" content="...">
-	<meta name="author" content="PointTheme">
+	<meta name="seed" content="PointTheme">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Title -->
 	<title>Ferreteria Ferremas</title>
-	<link rel="icon" type="image/x-icon" sizes="20x20" href="../../static/img/ferramass_guy.jpg">
-
+	<link rel="icon" type="image/x-icon" sizes="20x20" href="../../static/img/ferramass_guy.jpg" style="border-radius: 50%;">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="static/css/bootstrap-5.3.0.min.css">
 	<!-- fonts & icon -->
@@ -28,7 +24,7 @@
 <body>
 	<div class="loading-page" id="preloader-active">
         <div class="counter">
-			<img src="../../static/img/ferramass_guy.jpg" alt="img" style="width: 200px">
+			<img src="../../static/img/ferramass_guy.jpg" alt="img" style="width: 200px; border-radius: 50%;">
             <span class="number">0%</span>
             <span class="line"></span>
             <span class="line"></span>
@@ -54,7 +50,7 @@
 													fill="#AD8C5C" />
 											</svg>
 											<a href="javascript:void(0)">
-												<p class="pera text-color-secondary">infoyour@gmail.com</p>
+												<p class="pera text-color-secondary">contacto@ferramas.cl</p>
 											</a>
 										</div>
 									</div>
@@ -89,7 +85,9 @@
 											<div class="d-flex justify-content-between align-items-center">
 												<!-- Logo-->
 												<div class="logo logo-small light-logo">
-													<a href="index.html"><img src="../../static/img/ferramass_guy.jpg" alt="logo" style="width : 100px"></a>
+													<a href="index.html">
+														<img src="../../static/img/ferramass_guy.jpg" alt="logo" style="width: 100px; border-radius: 50%;">
+													</a>
 												</div>
 												<div class="search-header-position d-block d-lg-none">
 													<div class="d-flex gap-15">
@@ -102,77 +100,22 @@
 												</div>
 												<ul class="listing d-none d-lg-block" id="navigation">
 													<li class="single-list">
-														<a href="javascript:void(0)" class="single active">Inicio </a>
+														<a href="{% url 'herramientasmanuales' %}" class="single">Herramientas manuales</a>
 													</li>
 													<li class="single-list">
-														<a href="about.html" class="single">link navegacion</a>
+														<a href="{% url 'materialesbasicos' %}" class="single">Materiales básicos</a>
 													</li>
 													<li class="single-list">
-														<a href="shop.html" class="single">link navegacion</a>
+														<a href="{% url 'fijaciones' %}" class="single">Fijaciones</a>
 													</li>
 													<li class="single-list">
-														<a href="blog.html" class="single">link navegacion</a>
+														<a href="{% url 'tornillosanclajes' %}" class="single">Tornillos - Anclajes</a>
 													</li>
 													<li class="single-list">
-														<a href="javascript:void(0)" class="single">Paginas <i
-																class="ri-arrow-down-s-line"></i></a>
-														<ul class="submenu">
-															<li class="single-list">
-																<a href="anclajes/" class="single">Anclajes</a>
-															</li>
-															<li class="single-list">
-																<a href="shopping-cart.html" class="single">Shopping
-																	Cart</a>
-															</li>
-															<li class="single-list">
-																<a href="checkout.html" class="single">Checkout</a>
-															</li>
-															<li class="single-list">
-																<a href="javascript:void(0)" class="single">Login<i
-																		class="ri-arrow-right-s-line"></i></a>
-																<ul class="submenu">
-																	<li class="single-list">
-																		<a href="login.html" class="single">Login</a>
-																	</li>
-																	<li class="single-list">
-																		<a href="register.html"
-																			class="single">Registration</a>
-																	</li>
-																	<li class="single-list">
-																		<a href="forgot-pass.html" class="single">Forgot
-																			Password</a>
-																	</li>
-																	<li class="single-list">
-																		<a href="new-password.html" class="single">New
-																			Password</a>
-																	</li>
-																</ul>
-															</li>
-
-															<li class="single-list">
-																<a href="faq.html" class="single">FAQs</a>
-															</li>
-															<li class="single-list">
-																<a href="privacy-policy.html" class="single">privacy
-																	policy</a>
-															</li>
-															<li class="single-list">
-																<a href="terms-condition.html"
-																	class="single">terms-condition</a>
-															</li>
-														</ul>
+														<a href="{% url 'equiposseguridad' %}" class="single">Equipos de seguridad</a>
 													</li>
 													<li class="single-list">
-														<a href="contact.html" class="single">Contacto</a>
-													</li>
-													<li class="d-block d-lg-none">
-														<div class="login-wrapper">
-															<a href="login.html">
-																<p class="pera text-color-primary">
-																	Login/ Regeister
-																</p>
-															</a>
-														</div>
+														<a href="{% url 'equiposmedicion' %}" class="single">Equipos de medición</a>
 													</li>
 													<li class="d-block d-lg-none">
 														<div class="login-wrapper">
@@ -239,21 +182,9 @@
 								<!-- Single Slider -->
 								<div class="swiper-slide">
 									<div class="hero-caption-one position-relative mx-auto wow fadeInUp" data-wow-delay="0.0s">
-										<h4 class="title">Productos destacados
-											<span class="outline-text">Atornilladores</span> en nuestra tienda
+										<h4 class="title">Bienvenidos a 
+											<span class="outline-text">Ferretería</span> FERRAMAS
 										</h4>
-									</div>
-									<div class="text-center d-block wow fadeInUp" data-wow-delay="0.1s">
-										<a href="shop.html" class="outline-pill-btn ">
-											Explorar Productos
-											<svg xmlns="http://www.w3.org/2000/svg" width="78" height="19"
-												viewBox="0 0 78 19" fill="none">
-												<path
-													d="M66.918 10.9147C66.8987 10.9909 66.8754 11.0659 66.8482 11.1394C66.3343 12.5191 65.8568 13.9149 65.3832 15.3094C65.2835 15.6007 65.0431 15.8908 65.3278 16.3278C68.9295 13.4161 73.0932 11.4878 77.3487 9.65131C72.9717 7.73141 68.8104 5.59576 65.0804 2.61703C64.8556 3.06744 65.0978 3.36045 65.2072 3.6577C65.7259 5.06223 66.2433 6.47061 66.7965 7.85894C67.1854 8.84516 67.2283 9.92384 66.918 10.9147Z"
-													fill="currentColor" />
-												<rect y="8.90649" width="68" height="1" rx="0.5" fill="currentColor" />
-											</svg>
-										</a>
 									</div>
 									<div class="hero-image mx-auto wow fadeInUp" data-wow-delay="0.2s">
 										<img src="static/images/hero/hero-banner-1.png" alt="img">
@@ -263,21 +194,9 @@
 								<div class="swiper-slide">
 									<div class="hero-caption-one position-relative mx-auto wow fadeInUp" data-wow-delay="0.0s">
 										<h4 class="title">
-											Herramientas a eleccion
-											<span class="outline-text">de lujo</span> Boch
+											Todo lo que necesitas
+											<span class="outline-text">para tus proyectos</span> de contrucción y reparación
 										</h4>
-									</div>
-									<div class="text-center d-block wow fadeInUp" data-wow-delay="0.1s">
-										<a href="shop.html" class="outline-pill-btn ">
-											Explore Products
-											<svg xmlns="http://www.w3.org/2000/svg" width="78" height="19"
-												viewBox="0 0 78 19" fill="none">
-												<path
-													d="M66.918 10.9147C66.8987 10.9909 66.8754 11.0659 66.8482 11.1394C66.3343 12.5191 65.8568 13.9149 65.3832 15.3094C65.2835 15.6007 65.0431 15.8908 65.3278 16.3278C68.9295 13.4161 73.0932 11.4878 77.3487 9.65131C72.9717 7.73141 68.8104 5.59576 65.0804 2.61703C64.8556 3.06744 65.0978 3.36045 65.2072 3.6577C65.7259 5.06223 66.2433 6.47061 66.7965 7.85894C67.1854 8.84516 67.2283 9.92384 66.918 10.9147Z"
-													fill="currentColor" />
-												<rect y="8.90649" width="68" height="1" rx="0.5" fill="currentColor" />
-											</svg>
-										</a>
 									</div>
 									<div class="hero-image mx-auto wow fadeInUp" data-wow-delay="0.2s">
 										<img src="static/images/hero/04.png" alt="img">
@@ -287,21 +206,9 @@
 								<div class="swiper-slide">
 									<div class="hero-caption-one position-relative mx-auto wow fadeInUp" data-wow-delay="0.0s">
 										<h4 class="title">
-											Elevate Your Space with
-											<span class="outline-text">Elegant</span> Furniture Designs
+											Equipa tu taller
+											<span class="outline-text">CON LOS MEJORES</span> productos del mercado
 										</h4>
-									</div>
-									<div class="text-center d-block">
-										<a href="shop.html" class="outline-pill-btn wow fadeInUp" data-wow-delay="0.1s">
-											Explore Products
-											<svg xmlns="http://www.w3.org/2000/svg" width="78" height="19"
-												viewBox="0 0 78 19" fill="none">
-												<path
-													d="M66.918 10.9147C66.8987 10.9909 66.8754 11.0659 66.8482 11.1394C66.3343 12.5191 65.8568 13.9149 65.3832 15.3094C65.2835 15.6007 65.0431 15.8908 65.3278 16.3278C68.9295 13.4161 73.0932 11.4878 77.3487 9.65131C72.9717 7.73141 68.8104 5.59576 65.0804 2.61703C64.8556 3.06744 65.0978 3.36045 65.2072 3.6577C65.7259 5.06223 66.2433 6.47061 66.7965 7.85894C67.1854 8.84516 67.2283 9.92384 66.918 10.9147Z"
-													fill="currentColor" />
-												<rect y="8.90649" width="68" height="1" rx="0.5" fill="currentColor" />
-											</svg>
-										</a>
 									</div>
 									<div class="hero-image mx-auto wow fadeInUp" data-wow-delay="0.2s">
 										<img src="static/images/hero/03.png" alt="img">
@@ -323,934 +230,10 @@
 				<img src="static/images/hero/hero-shape.png" alt="img">
 			</div>
 		</section>
-
-		<!-- Feature area S t a r t -->
-		<section class="feature-area feature-bg position-relative">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h4 class="title">Featured Products</h4>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="swiper featureSwiper-active">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$250</h4>
-												<h4 class="price text-color-primary">$200</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-1.png" alt="img">
-											</a>
-											<div class="discount-badge">
-												<span class="percentage">- 25%</span>
-											</div>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(52)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(31)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$250</h4>
-												<h4 class="price text-color-primary">$200</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-2.png" alt="img">
-											</a>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(31)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(31)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price text-color-primary">$450</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-3.png" alt="img">
-											</a>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Regency Side Table</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(22)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Regency Side Table</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(22)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$700</h4>
-												<h4 class="price text-color-primary">$600</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-4.png" alt="img">
-											</a>
-											<div class="discount-badge">
-												<span class="percentage">- 35%</span>
-											</div>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Green Velvet Armchair</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(41)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Green Velvet Armchair</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(41)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$250</h4>
-												<h4 class="price text-color-primary">$200</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-1.png" alt="img">
-											</a>
-											<div class="discount-badge">
-												<span class="percentage">- 25%</span>
-											</div>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(52)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(31)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$250</h4>
-												<h4 class="price text-color-primary">$200</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-2.png" alt="img">
-											</a>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(31)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(31)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price text-color-primary">$450</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-3.png" alt="img">
-											</a>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Regency Side Table</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(22)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Regency Side Table</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(22)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="product-card feature-card h-calc">
-										<div class="top-card">
-											<div class="price-section">
-												<h4 class="price discounted">$700</h4>
-												<h4 class="price text-color-primary">$600</h4>
-											</div>
-											<button class="wishlist-icon">
-												<img src="static/images/icon/wish-icon-2.png" alt="img">
-											</button>
-										</div>
-										<div class="product-img-card feature-img-card">
-											<a href="shop-details.html" class="zoomImg">
-												<img src="static/images/product/product-4.png" alt="img">
-											</a>
-											<div class="discount-badge">
-												<span class="percentage">- 35%</span>
-											</div>
-											<div class="special-icon">
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"
-														viewBox="0 0 21 19" fill="none">
-														<path
-															d="M0.978546 2.56816V5.13649H1.65442H2.33029V3.71701V2.292L5.45619 5.35743L8.58209 8.42285L9.07209 7.9368L9.56773 7.45628L6.44183 4.39085L3.31593 1.32542H4.76905H6.21654V0.662629V-0.000165939H3.59754H0.978546V2.56816Z"
-															fill="#111111" />
-														<path
-															d="M15.1167 0.662629V1.32542H16.5642H18.0173L14.8914 4.39085L11.7655 7.45628L12.2611 7.9368L12.7511 8.42285L15.877 5.35743L19.0029 2.292V3.71701V5.13649H19.6788H20.3547V2.56816V-0.000165939H17.7357H15.1167V0.662629Z"
-															fill="#111111" />
-														<path
-															d="M5.43926 13.6535L2.33026 16.7078V15.2828V13.8633H1.65439H0.978516V16.4317V19H3.59751H6.21651V18.3372V17.6744H4.76902H3.3159L6.4418 14.609L9.5677 11.5436L9.08896 11.0741C8.82988 10.8145 8.59895 10.6046 8.58206 10.6046C8.56516 10.6046 7.15146 11.9799 5.43926 13.6535Z"
-															fill="#111111" />
-														<path
-															d="M12.2442 11.0741L11.7655 11.5436L14.8914 14.609L18.0173 17.6744H16.5641H15.1167V18.3372V19H17.7356H20.3546V16.4317V13.8633H19.6788H19.0029V15.2828V16.7078L15.8883 13.6535C14.1817 11.9799 12.768 10.6046 12.7511 10.6046C12.7342 10.6046 12.5033 10.8145 12.2442 11.0741Z"
-															fill="#111111" />
-													</svg>
-												</button>
-												<div class="divider"></div>
-												<button class="icon-btn">
-													<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
-														viewBox="0 0 22 25" fill="none">
-														<path
-															d="M9.4304 0.827005C9.4304 1.27952 9.41567 1.65419 9.40094 1.65419C9.38622 1.65419 9.14565 1.69798 8.87563 1.75637C4.21162 2.6906 0.73079 6.34481 0.0827378 10.9868C-0.0694564 12.0475 -0.00563302 13.663 0.225113 14.7432C0.809342 17.5069 2.62094 20.1004 5.01677 21.6185L5.29661 21.7937L5.98885 21.2779C6.36688 20.9957 6.68109 20.7524 6.68109 20.733C6.68109 20.7184 6.55835 20.6405 6.41107 20.5627C5.65992 20.1734 4.68293 19.3949 4.02015 18.6601C2.76332 17.2636 1.95816 15.5606 1.69796 13.77C1.60468 13.1083 1.60468 11.7945 1.69796 11.1668C1.89925 9.83845 2.37056 8.58308 3.07753 7.48341C3.96123 6.11612 5.30643 4.91914 6.77928 4.1844C7.52552 3.8146 8.56142 3.46426 9.2733 3.33775L9.4304 3.30856V3.98977C9.4304 4.36444 9.44022 4.67098 9.45495 4.67098C9.50404 4.67098 12.5725 2.36946 12.5725 2.3354C12.5725 2.30134 9.50404 -0.000179291 9.45495 -0.000179291C9.44022 -0.000179291 9.4304 0.369621 9.4304 0.827005Z"
-															fill="#111111" />
-														<path
-															d="M16.0134 3.6345C15.6354 3.91672 15.331 4.16487 15.3457 4.18434C15.3604 4.20867 15.5077 4.30112 15.6795 4.39357C17.118 5.20129 18.4583 6.56371 19.288 8.07697C19.7888 8.98687 20.211 10.3104 20.3288 11.3419C20.427 12.1545 20.3681 13.551 20.211 14.2906C19.5335 17.4728 17.2997 20.0371 14.2165 21.1757C13.8287 21.3168 12.778 21.6039 12.6406 21.6039C12.5866 21.6039 12.5718 21.4822 12.5718 20.9227C12.5718 20.548 12.562 20.2414 12.5473 20.2414C12.4982 20.2414 9.42976 22.543 9.42976 22.577C9.42976 22.6111 12.4982 24.9126 12.5473 24.9126C12.562 24.9126 12.5718 24.5428 12.5718 24.0854V23.2631L12.7584 23.2339C13.215 23.1609 14.5062 22.8154 14.9284 22.65C18.7578 21.1659 21.3795 17.8767 21.9244 13.8673C22.0668 12.8357 22.003 11.2203 21.7771 10.1693C21.1929 7.40549 19.3813 4.81202 16.9855 3.2939L16.7056 3.11873L16.0134 3.6345Z"
-															fill="#111111" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<a href="shop-details.html">
-											<h4 class="product-title line-clamp-1">Green Velvet Armchair</h4>
-										</a>
-										<div class="product-review">
-											<div class="product-ratting">
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-												<i class="ri-star-s-fill"></i>
-											</div>
-											<p class="count-ratting">(41)</p>
-										</div>
-										<div class="cart-card feature-cart-card d-none d-md-block">
-											<a href="shop-details.html">
-												<h4 class="product-title line-clamp-1">Green Velvet Armchair</h4>
-											</a>
-											<div class="product-review">
-												<div class="product-ratting">
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-													<i class="ri-star-s-fill"></i>
-												</div>
-												<p class="count-ratting">(41)</p>
-											</div>
-											<div class="button-section">
-												<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-												<div class="fill-pill-btn qty-btn">
-													<div class="qty-container featury-qty-container">
-														<div class="qty-btn-minus qty-btn mr-1">
-															<i class="ri-subtract-fill"></i>
-														</div>
-														<input type="text" name="qty" value="0" class="input-qty input-rounded">
-														<div class="qty-btn-plus qty-btn ml-1">
-															<i class="ri-add-fill"></i>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="button-section d-block d-md-none">
-											<a href="javascript:void(0)" class=" cart-btn">Add to Cart</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-button-next swiper-common-btn"><i class="ri-arrow-right-s-line"></i></div>
-							<div class="swiper-button-prev swiper-common-btn"><i class="ri-arrow-left-s-line"></i></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End-of feature-->
-
-		<!-- Categories area S t a r t -->
-		<section class="category-area section-padding2">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-with-button wow fadeInLeft" data-wow-delay="0.0s">
-							<div class="section-title position-relative">
-								<h4 class="title">Choose The <span class="outline-text">Categories</span>
-									That You Want</h4>
-								<div class="shape routedOne">
-									<img src="static/images/icon/title-shape.png" alt="img">
-								</div>
-							</div>
-							<div class="text-center d-block">
-								<a href="shop.html" class="outline-pill-btn ">
-									See All Categories
-									<svg xmlns="http://www.w3.org/2000/svg" width="78" height="19" viewBox="0 0 78 19"
-										fill="none">
-										<path
-											d="M66.918 10.9147C66.8987 10.9909 66.8754 11.0659 66.8482 11.1394C66.3343 12.5191 65.8568 13.9149 65.3832 15.3094C65.2835 15.6007 65.0431 15.8908 65.3278 16.3278C68.9295 13.4161 73.0932 11.4878 77.3487 9.65131C72.9717 7.73141 68.8104 5.59576 65.0804 2.61703C64.8556 3.06744 65.0978 3.36045 65.2072 3.6577C65.7259 5.06223 66.2433 6.47061 66.7965 7.85894C67.1854 8.84516 67.2283 9.92384 66.918 10.9147Z"
-											fill="currentColor" />
-										<rect y="8.90649" width="68" height="1" rx="0.5" fill="currentColor" />
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row g-4 mb-24">
-					<div class="col-xl-6">
-						<div class="category-card h-calc gallery-one wow fadeInUp" data-wow-delay="0.0s">
-							<a href="shop.html" class="zoomImg">
-								<img src="static/images/category/category-1.png" alt="img">
-							</a>
-							<div class="collection-card lg">
-								<a href="shop.html">
-									<h4 class="title text-color-primary line-clamp-1">Exclusive Papillon XL Beds</h4>
-									<p class="pera text-color-tertiary">35 Categories</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6">
-						<div class="row g-4">
-							<div class="col-xl-12 col-lg-6">
-								<div class="category-card h-calc gallery-two wow fadeInUp" data-wow-delay="0.1s">
-									<a href="shop.html"  class="zoomImg">
-										<img src="static/images/category/category-2.png" alt="img">
-									</a>
-									<div class="collection-card">
-										<a href="shop.html">
-											<h4 class="title text-color-primary">Contemporary Sofa</h4>
-											<p class="pera text-color-tertiary">48 Categories</p>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-12 col-lg-6">
-								<div class="category-card h-calc gallery-two wow fadeInUp" data-wow-delay="0.2s">
-									<a href="shop.html"  class="zoomImg">
-										<img src="static/images/category/category-3.png" alt="img">
-									</a>
-									<div class="collection-card">
-										<a href="shop.html">
-											<h4 class="title text-color-primary">Vocan Center Table</h4>
-											<p class="pera text-color-tertiary">24 Categories</p>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row g-4">
-					<div class="col-xl-4 col-md-6">
-						<div class="category-card h-calc gallery-three wow fadeInUp" data-wow-delay="0.0s">
-							<a href="shop.html"  class="zoomImg">
-								<img src="static/images/category/category-4.png" alt="img">
-							</a>
-							<div class="collection-card sm">
-								<a href="shop.html">
-									<h4 class="title text-color-primary line-clamp-1">Glass Coffee Table</h4>
-									<p class="pera text-color-tertiary">15 Categories</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-md-6">
-						<div class="category-card h-calc gallery-three wow fadeInUp" data-wow-delay="0.1s">
-							<a href="shop.html"  class="zoomImg">
-								<img src="static/images/category/category-5.png" alt="img">
-							</a>
-							<div class="collection-card sm">
-								<a href="shop.html">
-									<h4 class="title text-color-primary line-clamp-1">Mambo Lamp Light</h4>
-									<p class="pera text-color-tertiary">22 Categories</p>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-md-6">
-						<div class="category-card h-calc gallery-three wow fadeInUp" data-wow-delay="0.2s">
-							<a href="shop.html"  class="zoomImg">
-								<img src="static/images/category/category-6.png" alt="img">
-							</a>
-							<div class="collection-card sm">
-								<a href="shop.html">
-									<h4 class="title text-color-primary line-clamp-1">Luxury Chat Chair</h4>
-									<p class="pera text-color-tertiary">32 Categories</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</section>
-		<!-- End-of categories-->
-
-		<!-- Deals area S t a r t -->
-		
-		<!-- End-of deals-->
-
-		<!-- Best product area S t a r t -->
-		
-		<!-- End-of best product-->
-
-		<!-- News area S t a r t -->
-		
-		<!-- End-of best news-->
-
-		<!-- Subscription area S t a r t -->
-
-		<!-- End-of subscription-->
-
 	</main>
-
 	<!-- Footer S t a r t -->
 	<footer>
 		<div class="footer-wrapper footer-bg-one">
-			
 			<!-- footer-bottom area -->
 			<div class="footer-bottom-area position-relative">
 				<div class="container">
@@ -1264,7 +247,6 @@
 		</div>
 	</footer>
 	<!-- End-of Footer -->
-
 	<!-- Scroll Up  -->
 	<div class="progressParent" id="back-top">
 		<svg class="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -1272,6 +254,7 @@
 		</svg>
 	</div>
 	<!-- Add an overlay element -->
+	<p>&copy;InformaticSolutions&reg 2024 - Todos los derechos reservados.</p>
 	<div class="overlay"></div>
 	<!-- jquery-->
 	<script src="static/js/jquery-3.7.0.min.js"></script>

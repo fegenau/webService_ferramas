@@ -76,7 +76,19 @@ def modificar_pedido(request, pedido_id):
         form = PedidoForm(instance=pedido)
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
 
-
+# Catalogo
+def herramientasmanuales(request):
+    return render(request, 'catalogo/herramientasmanuales.html')
+def equiposmedicion(request):
+    return render(request, 'catalogo/equiposmedicion.html')
+def equiposseguridad(request):
+    return render(request, 'catalogo/equiposseguridad.html')
+def fijaciones(request):
+    return render(request, 'catalogo/fijaciones.html')
+def materialesbasicos(request):
+    return render(request, 'catalogo/materialesbasicos.html')
+def tornillosanclajes(request):
+    return render(request, 'catalogo/tornillosanclajes.html')
 
 
 
