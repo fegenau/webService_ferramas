@@ -77,8 +77,9 @@ def modificar_pedido(request, pedido_id):
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
 
 
-
-
+def productos_disponibles(request):
+    productos = Productos.objects.filter(stock__gt=0)
+    return render(request, 'Vista_Vendedor/productos_disponibles.html', {'productos': productos})
 
 
 
