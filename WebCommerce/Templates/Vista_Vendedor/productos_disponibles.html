@@ -600,27 +600,90 @@
                                 to you on your receipt and in the confirmation email you should have received.</p>
                                 
                                 <title>Productos Disponibles</title>
+                                <style>
+                                    .grid-container {
+                                        display: grid;
+                                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                                        gap: 20px;
+                                        padding: 20px;
+                                    }
+                                    .grid-item {
+                                        border: 1px solid #ccc;
+                                        padding: 20px;
+                                    }
+                                    .modify-button {
+                                        margin-top: 10px;
+                                    }
+                                    .search-container {
+                                        padding: 20px;
+                                        text-align: center;
+                                    }
+                                    .search-input {
+                                        padding: 10px;
+                                        width: 300px;
+                                        font-size: 16px;
+                                    }
+                                    .search-button {
+                                        padding: 10px;
+                                        font-size: 16px;
+                                        cursor: pointer;
+                                    }
+                                </style>
                             </head>
                             <body>
-                                <h1>Productos Disponibles</h1>
-                                
-                                <form method="GET" action="{% url 'productos_disponibles' %}">
-                                    <input type="text" name="q" placeholder="Buscar por nombre, marca o categoría" value="{{ query }}">
-                                    <button type="submit">Buscar</button>
-                                </form>
-                            
-                                <ul>
-                                    {% for producto in productos %}
-                                        <li>
-                                            <h2>{{ producto.nombre }}</h2>
-                                            <p>{{ producto.descripcion }}</p>
-                                            <p>Precio: ${{ producto.precio }}</p>
-                                            <p>Stock: {{ producto.stock }}</p>
-                                            <p>Marca: {{ producto.marca_id.nombre }}</p>
-                                            <p>Categoría: {{ producto.categoria_id.nombre }}</p>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
+                                <title>Productos Disponibles</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .modify-button {
+            margin-top: 10px;
+        }
+        .search-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Productos Disponibles</h1>
+    
+    <div class="A">
+        <form method="GET" action="{% url 'productos_disponibles' %}">
+            <input type="text" name="q" class="search-input" placeholder="Buscar por nombre, marca o categoría" value="{{ query }}">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+    </div>
+
+    <div class="grid-container">
+        {% for producto in productos %}
+            <div class="grid-item">
+                <h2>{{ producto.nombre }}</h2>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+                <p>Stock: {{ producto.stock }}</p>
+                <p>Marca: {{ producto.marca_id.nombre }}</p>
+                <p>Categoría: {{ producto.categoria_id.nombre }}</p>
+            </div>
+        {% endfor %}
+    </div>
                             </body>
                                
                             </body>
