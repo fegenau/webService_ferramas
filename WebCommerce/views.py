@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import *
 from .models import *
+from django.http import JsonResponse
 
 
 def user_login(request):
@@ -77,12 +78,22 @@ def modificar_pedido(request, pedido_id):
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
 
 
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Productos, Categorias, Marcas
+
 def productos_disponibles(request):
+    query = request.GET.get('q', '')
     productos = Productos.objects.filter(stock__gt=0)
-    return render(request, 'Vista_Vendedor/productos_disponibles.html', {'productos': productos})
 
+    if query:
+        productos = productos.filter(
+            Q(nombre__icontains=query) |
+            Q(marca_id__nombre__icontains=query) |
+            Q(categoria_id__nombre__icontains=query)
+        )
 
-
+    return render(request, 'Vista_Vendedor/productos_disponibles.html', {'productos': productos, 'query': query})
 
 
 

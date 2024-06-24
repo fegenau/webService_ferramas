@@ -603,6 +603,12 @@
                             </head>
                             <body>
                                 <h1>Productos Disponibles</h1>
+                                
+                                <form method="GET" action="{% url 'productos_disponibles' %}">
+                                    <input type="text" name="q" placeholder="Buscar por nombre, marca o categoría" value="{{ query }}">
+                                    <button type="submit">Buscar</button>
+                                </form>
+                            
                                 <ul>
                                     {% for producto in productos %}
                                         <li>
@@ -610,9 +616,13 @@
                                             <p>{{ producto.descripcion }}</p>
                                             <p>Precio: ${{ producto.precio }}</p>
                                             <p>Stock: {{ producto.stock }}</p>
+                                            <p>Marca: {{ producto.marca_id.nombre }}</p>
+                                            <p>Categoría: {{ producto.categoria_id.nombre }}</p>
                                         </li>
                                     {% endfor %}
                                 </ul>
+                            </body>
+                               
                             </body>
                         </div>
                     </div>
