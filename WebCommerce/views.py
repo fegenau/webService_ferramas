@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import *
 from .models import *
+from django.http import JsonResponse
 
 
 def user_login(request):
@@ -76,6 +77,7 @@ def modificar_pedido(request, pedido_id):
         form = PedidoForm(instance=pedido)
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
 
+<<<<<<< HEAD
 # Catalogo
 def herramientasmanuales(request):
     return render(request, 'catalogo/herramientasmanuales.html')
@@ -89,11 +91,25 @@ def materialesbasicos(request):
     return render(request, 'catalogo/materialesbasicos.html')
 def tornillosanclajes(request):
     return render(request, 'catalogo/tornillosanclajes.html')
+=======
 
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Productos, Categorias, Marcas
+>>>>>>> unreleased
 
+def productos_disponibles(request):
+    query = request.GET.get('q', '')
+    productos = Productos.objects.filter(stock__gt=0)
 
+    if query:
+        productos = productos.filter(
+            Q(nombre__icontains=query) |
+            Q(marca_id__nombre__icontains=query) |
+            Q(categoria_id__nombre__icontains=query)
+        )
 
-
+    return render(request, 'Vista_Vendedor/productos_disponibles.html', {'productos': productos, 'query': query})
 
 
 

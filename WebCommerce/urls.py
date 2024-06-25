@@ -8,9 +8,10 @@ urlpatterns = [
     path('register/', views.user_register, name='user_register'),
     path('index/', views.index, name='index'),
 
-
+#Vista Bodeguero
     path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
     path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
+<<<<<<< HEAD
 
 #catalogo
     path('catalogo/herramientasmanuales/', views.herramientasmanuales, name='herramientasmanuales'),
@@ -19,6 +20,15 @@ urlpatterns = [
     path('fijaciones/', views.fijaciones, name='fijaciones'),
     path('materialesbasicos/', views.materialesbasicos, name='materialesbasicos'),
     path('tornillosanclajes/', views.tornillosanclajes, name='tornillosanclajes'),
+=======
+#Vista Vendedor
+    path('productos_disponibles/', views.productos_disponibles, name='productos_disponibles'),
+
+
+
+
+
+>>>>>>> unreleased
 
     path('about/', views.about),
     path('anclajes/', views.anclajes),
