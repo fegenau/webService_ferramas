@@ -13,6 +13,8 @@ urlpatterns = [
     path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
 #Vista Vendedor
     path('productos_disponibles/', views.productos_disponibles, name='productos_disponibles'),
+    path('buscar_pedido2/', views.buscar_pedido2, name='buscar_pedido2'),
+    path('modificar_pedido2/<int:pedido_id>/', views.modificar_pedido2, name='modificar_pedido2'),
 
 
 
