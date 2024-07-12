@@ -8,9 +8,19 @@ urlpatterns = [
     path('register/', views.user_register, name='user_register'),
     path('index/', views.index, name='index'),
 
-
+#Vista Bodeguero
     path('buscar_pedido/', views.buscar_pedido, name='buscar_pedido'),
     path('modificar_pedido/<int:pedido_id>/', views.modificar_pedido, name='modificar_pedido'),
+#Vista Vendedor
+    path('productos_disponibles/', views.productos_disponibles, name='productos_disponibles'),
+    path('buscar_pedido2/', views.buscar_pedido2, name='buscar_pedido2'),
+    path('modificar_pedido2/<int:pedido_id>/', views.modificar_pedido2, name='modificar_pedido2'),
+
+
+
+
+
+
     path('about/', views.about),
     path('anclajes/', views.anclajes),
     path('crear-cuenta/', views.crearCuenta),

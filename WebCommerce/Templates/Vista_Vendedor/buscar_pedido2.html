@@ -616,45 +616,44 @@
                                 </style>
                                 </head>
                                 <body>
-                                    <h1>Buscar Pedido OC</h1>
-                                    <form method="get" action="{% url 'buscar_pedido_Bodeguero' %}" class="grid-item">
-                                        <label for="cliente_rut">RUT del Cliente:</label>
-                                        <input type="text" id="cliente_rut" name="cliente_rut">
-                                        <button type="submit">Buscar</button>
-                                    </form>
-                                    
-                                    <form method="get" action="{% url 'buscar_pedido_Bodeguero' %}" class="grid-item">
-                                        <label for="estado_pedido">Estado del Pedido:</label>
-                                        <select id="estado_pedido" name="estado_pedido">
-                                            <option value="aprobado">Aprobado</option>
-                                            <option value="preparando">Preparando</option>
-                                        </select>
-                                        <button type="submit">Buscar</button>
-                                    </form>
-                                    
-                                    {% if pedidos %}
-                                        <h2>Resultados de la Búsqueda</h2>
-                                        <div class="grid-container">
-                                            {% for pedido in pedidos %}
-                                                <div class="grid-item">
-                                                    <p><strong>Orden de Compra:</strong> {{ pedido.pedido_id }}</p>
-                                                    <p><strong>Cliente:</strong> {{ pedido.usuario_id.nombre }}</p>
-                                                    <p><strong>RUT:</strong> {{ pedido.usuario_id.rut }}</p>
-                                                    <p><strong>Dirección de Envío:</strong> {{ pedido.direccion_envio_id.alias }}</p>
-                                                    <p><strong>Fecha de Pedido:</strong> {{ pedido.fecha_pedido }}</p>
-                                                    <p><strong>Fecha de Entrega Estimada:</strong> {{ pedido.fecha_entrega_estimada }}</p>
-                                                    <p><strong>Estado:</strong> {{ pedido.estado }}</p>
-                                                    <p><strong>Total:</strong> {{ pedido.total }}</p>
-                                                    <button type="submit" class="modify-button">
-                                                        <a href="{% url 'modificar_pedido_Bodeguero' pedido.pedido_id %}">Modificar Estado</a>
-                                                    </button>
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% else %}
-                                        <p>No se encontraron pedidos que coincidan con la búsqueda.</p>
-                                    {% endif %}
-                                    
+                                <h1>Buscar Pedido OC</h1>
+                                <<form method="get" action="{% url 'buscar_pedido2' %}" class="grid-item">
+                                    <label for="cliente_rut">RUT del Cliente:</label>
+                                    <input type="text" id="cliente_rut" name="cliente_rut">
+                                    <button type="submit">Buscar</button>
+                                </form>
+                                
+                                <form method="get" action="{% url 'buscar_pedido2' %}" class="grid-item">
+                                    <label for="estado_pedido">Estado del Pedido:</label>
+                                    <select id="estado_pedido" name="estado_pedido">
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="enviado">Enviado</option>
+                                    </select>
+                                    <button type="submit">Buscar</button>
+                                </form>
+                                
+                                {% if pedidos %}
+                                    <h2>Resultados de la Búsqueda</h2>
+                                    <div class="grid-container">
+                                        {% for pedido in pedidos %}
+                                            <div class="grid-item">
+                                                <p><strong>Orden de Compra:</strong> {{ pedido.pedido_id }}</p>
+                                                <p><strong>Cliente:</strong> {{ pedido.usuario_id.nombre }}</p>
+                                                <p><strong>RUT:</strong> {{ pedido.usuario_id.rut }}</p>
+                                                <p><strong>Dirección de Envío:</strong> {{ pedido.direccion_envio_id.alias }}</p>
+                                                <p><strong>Fecha de Pedido:</strong> {{ pedido.fecha_pedido }}</p>
+                                                <p><strong>Fecha de Entrega Estimada:</strong> {{ pedido.fecha_entrega_estimada }}</p>
+                                                <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+                                                <p><strong>Total:</strong> {{ pedido.total }}</p>
+                                                <button type="submit" class="modify-button">
+                                                    <a href="{% url 'modificar_pedido2' pedido.pedido_id %}">Modificar Estado</a>
+                                                </button>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <p>No se encontraron pedidos que coincidan con la búsqueda.</p>
+                                {% endif %}
                         </div>
                     </div>
                 </div>

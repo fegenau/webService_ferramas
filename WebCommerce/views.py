@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import *
 from .models import *
-
+from django.db.models import Q
+from .forms import *
 
 def user_login(request):
     if request.method == 'POST':
@@ -55,15 +56,37 @@ def buscar_pedido(request):
     pedidos = None
     if 'cliente_rut' in request.GET:
         cliente_rut = request.GET['cliente_rut']
-        pedidos = Pedidos.objects.filter(usuario_id__rut=cliente_rut)
-
+        pedidos = Pedidos.objects.filter(usuario_id__rut=cliente_rut, estado__in=['aprobado', 'preparando'])
     elif 'estado_pedido' in request.GET:
         estado_pedido = request.GET['estado_pedido']
-        pedidos = Pedidos.objects.filter(estado=estado_pedido)
+        if estado_pedido in ['aprobado', 'preparando']:
+            pedidos = Pedidos.objects.filter(estado=estado_pedido)
 
     return render(request, 'Vista_Bodeguero/buscar_pedido.html', {'pedidos': pedidos})
 
-from .forms import PedidoForm
+def buscar_pedido2(request):
+    pedidos = None
+    if 'cliente_rut' in request.GET:
+        cliente_rut = request.GET['cliente_rut']
+        pedidos = Pedidos.objects.filter(usuario_id__rut=cliente_rut, estado__in=['pendiente', 'enviado'])
+    elif 'estado_pedido' in request.GET:
+        estado_pedido = request.GET['estado_pedido']
+        if estado_pedido in ['pendiente', 'enviado']:
+            pedidos = Pedidos.objects.filter(estado=estado_pedido)
+
+    return render(request, 'Vista_Vendedor/buscar_pedido2.html', {'pedidos': pedidos})
+
+def modificar_pedido2(request, pedido_id):
+    pedido = get_object_or_404(Pedidos, pk=pedido_id)
+    if request.method == 'POST':
+        form = PedidoForm2(request.POST, instance=pedido)
+        if form.is_valid():
+            form.save()
+            return redirect('buscar_pedido2')
+    else:
+        form = PedidoForm2(instance=pedido)
+    return render(request, 'Vista_Vendedor/modificar_pedido2.html', {'form': form, 'pedido': pedido})
+
 
 def modificar_pedido(request, pedido_id):
     pedido = get_object_or_404(Pedidos, pk=pedido_id)
@@ -75,6 +98,41 @@ def modificar_pedido(request, pedido_id):
     else:
         form = PedidoForm(instance=pedido)
     return render(request, 'Vista_Bodeguero/modificar_pedido.html', {'form': form, 'pedido': pedido})
+
+
+
+def productos_disponibles(request):
+    query = request.GET.get('q', '')
+    productos = Productos.objects.filter(stock__gt=0)
+
+    if query:
+        productos = productos.filter(
+            Q(nombre__icontains=query) |
+            Q(marca_id__nombre__icontains=query) |
+            Q(categoria_id__nombre__icontains=query)
+        )
+
+    return render(request, 'Vista_Vendedor/productos_disponibles.html', {'productos': productos, 'query': query})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Create your views here.
 def index(request):

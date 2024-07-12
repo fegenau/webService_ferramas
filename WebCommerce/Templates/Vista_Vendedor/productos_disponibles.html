@@ -598,7 +598,8 @@
                                 the "Track"
                                 button. This was given
                                 to you on your receipt and in the confirmation email you should have received.</p>
-                                <title>Buscar Pedido OC</title>
+                                
+                                <title>Productos Disponibles</title>
                                 <style>
                                     .grid-container {
                                         display: grid;
@@ -613,48 +614,79 @@
                                     .modify-button {
                                         margin-top: 10px;
                                     }
+                                    .search-container {
+                                        padding: 20px;
+                                        text-align: center;
+                                    }
+                                    .search-input {
+                                        padding: 10px;
+                                        width: 300px;
+                                        font-size: 16px;
+                                    }
+                                    .search-button {
+                                        padding: 10px;
+                                        font-size: 16px;
+                                        cursor: pointer;
+                                    }
                                 </style>
-                                </head>
-                                <body>
-                                    <h1>Buscar Pedido OC</h1>
-                                    <form method="get" action="{% url 'buscar_pedido_Bodeguero' %}" class="grid-item">
-                                        <label for="cliente_rut">RUT del Cliente:</label>
-                                        <input type="text" id="cliente_rut" name="cliente_rut">
-                                        <button type="submit">Buscar</button>
-                                    </form>
-                                    
-                                    <form method="get" action="{% url 'buscar_pedido_Bodeguero' %}" class="grid-item">
-                                        <label for="estado_pedido">Estado del Pedido:</label>
-                                        <select id="estado_pedido" name="estado_pedido">
-                                            <option value="aprobado">Aprobado</option>
-                                            <option value="preparando">Preparando</option>
-                                        </select>
-                                        <button type="submit">Buscar</button>
-                                    </form>
-                                    
-                                    {% if pedidos %}
-                                        <h2>Resultados de la Búsqueda</h2>
-                                        <div class="grid-container">
-                                            {% for pedido in pedidos %}
-                                                <div class="grid-item">
-                                                    <p><strong>Orden de Compra:</strong> {{ pedido.pedido_id }}</p>
-                                                    <p><strong>Cliente:</strong> {{ pedido.usuario_id.nombre }}</p>
-                                                    <p><strong>RUT:</strong> {{ pedido.usuario_id.rut }}</p>
-                                                    <p><strong>Dirección de Envío:</strong> {{ pedido.direccion_envio_id.alias }}</p>
-                                                    <p><strong>Fecha de Pedido:</strong> {{ pedido.fecha_pedido }}</p>
-                                                    <p><strong>Fecha de Entrega Estimada:</strong> {{ pedido.fecha_entrega_estimada }}</p>
-                                                    <p><strong>Estado:</strong> {{ pedido.estado }}</p>
-                                                    <p><strong>Total:</strong> {{ pedido.total }}</p>
-                                                    <button type="submit" class="modify-button">
-                                                        <a href="{% url 'modificar_pedido_Bodeguero' pedido.pedido_id %}">Modificar Estado</a>
-                                                    </button>
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% else %}
-                                        <p>No se encontraron pedidos que coincidan con la búsqueda.</p>
-                                    {% endif %}
-                                    
+                            </head>
+                            <body>
+                                <title>Productos Disponibles</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .modify-button {
+            margin-top: 10px;
+        }
+        .search-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Productos Disponibles</h1>
+    
+    <div class="A">
+        <form method="GET" action="{% url 'productos_disponibles' %}">
+            <input type="text" name="q" class="search-input" placeholder="Buscar por nombre, marca o categoría" value="{{ query }}">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+    </div>
+
+    <div class="grid-container">
+        {% for producto in productos %}
+            <div class="grid-item">
+                <h2>{{ producto.nombre }}</h2>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+                <p>Stock: {{ producto.stock }}</p>
+                <p>Marca: {{ producto.marca_id.nombre }}</p>
+                <p>Categoría: {{ producto.categoria_id.nombre }}</p>
+            </div>
+        {% endfor %}
+    </div>
+                            </body>
+                               
+                            </body>
                         </div>
                     </div>
                 </div>

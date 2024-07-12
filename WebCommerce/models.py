@@ -49,11 +49,13 @@ class Productos(models.Model):
 
 class Pedidos(models.Model):
     ESTADOS = (
+        ('cancelado', 'Cancelado'),
         ('pendiente', 'Pendiente'),
-        ('procesando', 'Procesando'),
+        ('aprobado', 'Aprobado'),
+        ('rechazado', 'Rechazado'),
+        ('preparando', 'Preparando'),
         ('enviado', 'Enviado'),
         ('entregado', 'Entregado'),
-        ('cancelado', 'Cancelado'),
     )
     pedido_id = models.AutoField(primary_key=True)
     usuario_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
